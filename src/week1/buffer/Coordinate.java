@@ -1,4 +1,4 @@
-package week1.assignment2.coordinate;
+package week1.buffer;
 
 import java.lang.reflect.Field;
 import java.util.Scanner;
@@ -13,11 +13,11 @@ public class Coordinate {
         field.set(this, number);
     }
 
-    public void dialogMessage(String props, Scanner in) {
+    public void dialogMessage(String props, String in) {
         try {
             String message = String.join(" ", "Enter", props, ": ");
-            System.out.print(message);
-            this.assignValue(props, in.nextInt());
+            System.out.println(message + " "+ in);
+            this.assignValue(props, Integer.parseInt(in));
         } catch (IllegalAccessException | NoSuchFieldException e) {
             e.printStackTrace();
         }
