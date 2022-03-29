@@ -37,15 +37,41 @@ public class KalibrrQuestionFour {
             System.out.println("find word: " + grid[i].getFindWord());
         }
     }
+}
 
-    static class SolvePuzzle {
+class SolvePuzzle {
+    private final Grid[] grid;
+//    private final ArrayList<> resultDirection;
 
+    SolvePuzzle(Grid[] grid) {
+        this.grid = grid;
     }
+
+    public void travelWord() {
+        for (int i = 0; i < grid.length; i++) {
+            // Loop words
+            for (int j = 0; j < grid[i].getCharWords().size(); j++) {
+                // 8 directions like compass
+                if(i != 0) {
+                    for (int k = 0; k < grid[i].getCharWords().get(j).length; k++) {
+                        // Do travel
+                        if(grid[i].getCharFindWord()[0] == grid[i].getCharWords().get(j)[k]) {
+
+                        }
+                    }
+                } else {
+
+                }
+            }
+        }
+    }
+
 }
 
 class Grid {
     private int row, col;
     private String findWord;
+    private char[] findWordChar;
     private String[] words;
     private final ArrayList<char[]> wordsChar = new ArrayList<>();
 
@@ -68,13 +94,25 @@ class Grid {
     public String getFindWord() {
         return findWord;
     }
+    public String getReveresedFindWord() {
+        return findWord;
+    }
 
     public void setFindWord(String findWord) {
+        this.findWordChar = findWord.toCharArray();
         this.findWord = findWord;
     }
 
     public String[] getWords() {
         return this.words;
+    }
+
+    public char[] getCharFindWord() {
+        return findWordChar;
+    }
+
+    public ArrayList<char[]> getCharWords() {
+        return this.wordsChar;
     }
 
     public void setWords(String[] words) {

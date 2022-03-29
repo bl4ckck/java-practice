@@ -1,8 +1,8 @@
-package week1.assignment4.conditional;
+package week1.assignment4;
 
 import java.util.Scanner;
 
-public class Condition {
+public class ConditionalApplication {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 //        Object[][] numbers = {{2, "N1"}, {1, "N2"}, {2, "N3"}};
@@ -30,17 +30,17 @@ public class Condition {
 
         // Vokal / Konsonan
         System.out.print("\nInput satu huruf: ");
-        String word = in.next();
+        char word = in.next().charAt(0);
         isVocal(word);
 
         in.close();
     }
 
-    private static void isVocal(String word) {
+    private static void isVocal(char word) {
         String result = "Konsonan";
-        if (word.equalsIgnoreCase("a")
-                || word.equalsIgnoreCase("i") || word.equalsIgnoreCase("u")
-                || word.equalsIgnoreCase("e") || word.equalsIgnoreCase("o")) {
+        word = Character.toLowerCase(word);
+        if (word == 'a' || word == 'i' || word == 'u'
+                || word == 'e' || word == 'o') {
             result = "Vokal";
         }
         System.out.println(result);
@@ -87,7 +87,6 @@ public class Condition {
         else if (toDouble(num[i][0]) == toDouble(num[case2][0])) return res(num[i][1], num[case2][1]);
         return isSame(num, ++i);
     }
-
     private static double toDouble(Object num) { return (Double) num; }
     private static String res(Object w1, Object w2) { return String.join(" ", w1+", "+ w2, "are equals"); }
 
