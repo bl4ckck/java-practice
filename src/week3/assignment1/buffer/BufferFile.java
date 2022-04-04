@@ -3,21 +3,25 @@ package week3.assignment1.buffer;
 import week3.assignment1.GradeReportApplication;
 
 import java.io.*;
-import java.util.stream.BaseStream;
 import java.util.stream.IntStream;
 
 abstract public class BufferFile {
     private boolean isAbsolutePath;
-    private final BufferedReader buffer;
+    private BufferedReader buffer;
+    protected String path;
 
-    public BufferFile(String path) throws FileNotFoundException {
+    public BufferFile(String path)  {
         this.buffer = this.setBuffer(path);
+        this.path = path;
     }
 
-    public BufferFile(String path, boolean isAbsolutePath) throws FileNotFoundException {
+    public BufferFile(String path, boolean isAbsolutePath) {
         this.buffer = this.setBuffer(path);
         this.isAbsolutePath = isAbsolutePath;
+        this.path = path;
     }
+
+    public BufferFile() {}
 
     public abstract IntStream bufferedToIntegerStream() throws FileNotFoundException;
 
@@ -34,6 +38,15 @@ abstract public class BufferFile {
         return buffer;
     }
 
+    public PrintWriter writer(String path) throws IOException {
+        this.path = path;
+        File file = new File("src/week3/assignment1/output/");
+        FileWriter fileWriter = new FileWriter(file.getAbsolutePath() + "/" + this.path);
+        System.out.println("File saved in:");
+        System.out.println(file.getAbsolutePath());
+        return new PrintWriter(fileWriter);
+    }
+
     private BufferedReader setBufferAbsolutePath(String path) throws FileNotFoundException {
         File file = new File(path);
         return new BufferedReader(new FileReader(file));
@@ -45,6 +58,10 @@ abstract public class BufferFile {
 
     public boolean isAbsolutePath() {
         return isAbsolutePath;
+    }
+
+    public String getPath() {
+        return path;
     }
 }
 

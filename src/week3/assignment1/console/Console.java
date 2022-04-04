@@ -1,7 +1,5 @@
 package week3.assignment1.console;
 
-import week3.assignment1.state.Store;
-
 import java.io.IOException;
 
 public interface Console {

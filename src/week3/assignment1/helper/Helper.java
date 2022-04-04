@@ -1,9 +1,9 @@
 package week3.assignment1.helper;
 
 public class Helper {
-    public static String genDash(int length) {
+    public static String symbol(int length, String txt) {
         if (length == 0) return "";
-        return "-" + genDash(--length);
+        return txt + symbol(--length, txt);
     }
     public static boolean objToBoolean(Object val) {
         return (Boolean) val;

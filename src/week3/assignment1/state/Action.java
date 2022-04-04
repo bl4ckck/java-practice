@@ -24,13 +24,14 @@ public enum Action {
                 store.setContinue(false);
                 break;
             case GENERATE_ALL:
-                System.out.println("gen all");
+                System.out.println("Generate all files");
+                centralTendencyService.generateAll();
                 break;
             case GENERATE_AVG_MEDIAN:
                 centralTendencyService.generateAvgMedian();
                 break;
             case GENERATE_MODUS:
-                System.out.println("Ini generate modus");
+                centralTendencyService.generateModus();
                 break;
             case READ_CSV:
                 centralTendencyService.readCSV();

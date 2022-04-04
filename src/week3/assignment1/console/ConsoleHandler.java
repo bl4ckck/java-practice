@@ -19,8 +19,8 @@ public class ConsoleHandler implements Console {
     }
 
     protected void printHeader() {
-        String title = Helper.genDash(APP_NAME.length()) + "\n"
-                + APP_NAME + "\n" + Helper.genDash(APP_NAME.length());
+        String title = Helper.symbol(APP_NAME.length(), "-") + "\n"
+                + APP_NAME + "\n" + Helper.symbol(APP_NAME.length(), "-");
         System.out.println(title);
     }
 

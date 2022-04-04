@@ -2,26 +2,22 @@ package week3.assignment1.buffer;
 
 import week3.assignment1.helper.StreamUtil;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
 public class BufferFileImpl extends BufferFile {
-//    private final int[] data;
-//    private final List<List<String>> records = new ArrayList<>();
-
-    public BufferFileImpl(String path) throws FileNotFoundException {
+    public BufferFileImpl(String path) {
         super(path);
-//        this.data = this.bufferedToIntegerStream().toArray();
     }
 
-    public BufferFileImpl(String path, boolean isAbsolutePath) throws FileNotFoundException {
+    public BufferFileImpl(String path, boolean isAbsolutePath) {
         super(path, isAbsolutePath);
-//        this.data = this.bufferedToIntegerStream().toArray();
     }
+
+    public BufferFileImpl() {}
 
     public List<List<?>> bufferedToList(boolean removeString) throws IOException {
         String line;
@@ -46,7 +42,7 @@ public class BufferFileImpl extends BufferFile {
     }
 
     @Override
-    public IntStream bufferedToIntegerStream() throws FileNotFoundException {
+    public IntStream bufferedToIntegerStream() {
         return this.getBuffer()
                 .lines()
                 .mapToInt(Integer::parseInt);
