@@ -1,4 +1,0 @@
-Nama: awe
-Umur: 33
-Alamat: asd
-Lulus Kuliah (y/n): n

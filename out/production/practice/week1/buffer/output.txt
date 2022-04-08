@@ -1,6 +1,0 @@
-Nama saya
-bl4ckck
-100
-A
-true
-false
