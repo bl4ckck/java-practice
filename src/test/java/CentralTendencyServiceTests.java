@@ -32,6 +32,6 @@ public class CentralTendencyServiceTests {
     @DisplayName("Should return mods")
     public void modsPositive() {
         int mods = service.getModusOne()[0];
-        Assertions.assertEquals(7.0, mods);
+        Assertions.assertEquals(7, mods);
     }
 }
